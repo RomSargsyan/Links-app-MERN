@@ -1,0 +1,5 @@
+{
+    "port": 5000,
+    "jwtSecret": "Secret token",
+    "mongoUri" : "mongodb+srv://RomSargsyan:12121212@cluster0.s0eys.azure.mongodb.net/RomSargsyan?retryWrites=true&w=majority"
+}
