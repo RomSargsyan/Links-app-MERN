@@ -4,7 +4,7 @@ import { useMessage } from '../hooks/messageHook';
 import { AuthContext } from '../Context/authContext';
 
 export const AuthPage = () => {
-    const {loading, request, error, clearError } = useHttp();
+    const { loading, request, error, clearError } = useHttp();
     const [form, setForm] = useState({
         email: "", password: ""
     });
@@ -17,21 +17,21 @@ export const AuthPage = () => {
     }, [error, message, clearError])
 
     const changeHandler = (event) => {
-        setForm({...form, [event.target.name]: event.target.value})
+        setForm({ ...form, [event.target.name]: event.target.value })
     }
 
     const registerHandler = async () => {
         try {
-           const data = await request('/api/auth/register', 'POST', {...form} )
-           message(data.message)
-        } catch (error) {}
+            const data = await request('/api/auth/register', 'POST', { ...form })
+            message(data.message)
+        } catch (error) { }
     }
-    
+
     const loginHandler = async () => {
         try {
-            const data = await request('/api/auth/login', 'POST', {...form} )
+            const data = await request('/api/auth/login', 'POST', { ...form })
             auth.login(data.token, data.userId)
-        } catch (error) {}
+        } catch (error) { }
     }
 
     return (
@@ -42,35 +42,34 @@ export const AuthPage = () => {
                         <span className="card-title">Authiaction</span>
                         <div>
                             <label htmlFor="Email">Email</label>
-                            <input 
-                                id="email" 
-                                type="email" 
+                            <input
+                                id="email"
+                                type="email"
                                 name="email"
                                 placeholder="Type Email"
-                                onChange={changeHandler} 
+                                onChange={changeHandler}
                             />
                         </div>
                         <div>
                             <label htmlFor="Password">Password</label>
-                            <input 
-                                id="password" 
-                                type="password" 
+                            <input
+                                id="password"
+                                type="password"
                                 name="password"
                                 placeholder="Type Password"
-                                onChange={changeHandler}  
+                                onChange={changeHandler}
                             />
-                            
                         </div>
                         <div className="card-action">
-                            <button 
-                                onClick={loginHandler} 
+                            <button
+                                onClick={loginHandler}
                                 className="btn  blue lighten-2 sign-in"
                                 disabled={loading}
                             >
                                 Sign in
                             </button>
-                            <button 
-                                onClick={registerHandler} 
+                            <button
+                                onClick={registerHandler}
                                 className="btn  indigo darken-1"
                                 disabled={loading}
                             >
