@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 const auth = require('./routes/auth');
-const links = require("./routes/links");
+const link = require("./routes/link");
 
 const app = express();
 
@@ -13,7 +13,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use('/api/auth', auth);
-app.use('/api/links', links)
+app.use('/api/link', link)
 app.use(express.json({extended: true}))
 app.use(cors())
 
