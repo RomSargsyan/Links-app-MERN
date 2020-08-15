@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 
 const auth = require('./routes/auth');
 const link = require("./routes/link");
+const redirect = require("./routes/redirect");
 
 const app = express();
 
@@ -14,6 +15,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use('/api/auth', auth);
 app.use('/api/link', link)
+app.use('/t', redirect)
+
 app.use(express.json({extended: true}))
 app.use(cors())
 
