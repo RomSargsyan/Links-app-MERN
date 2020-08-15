@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useHttp } from '../hooks/httpHook';
-import { useMessage } from '../hooks/messageHook';
-import { AuthContext } from '../Context/authContext';
+import React, { useState, useEffect, useContext } from 'react'
+import { useHttp } from '../hooks/httpHook'
+import { useMessage } from '../hooks/messageHook'
+import { AuthContext } from '../Context/authContext'
 
 export const AuthPage = () => {
     const { loading, request, error, clearError } = useHttp();

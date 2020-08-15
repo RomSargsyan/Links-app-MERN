@@ -1,16 +1,15 @@
-const { Router } = require("express");
-const shortid = require('short-id');
 const config = require("config");
-const Link = require('../models/Link');
-const auth = require('../middleware/auth');
-const router = Router()
+const shortid = require("short-id");
+const { Router } = require("express");
+const Link = require("../models/Link");
+const auth = require("../middleware/auth");
 
+const router = Router()
 
 router.post('/generate', auth, async (req, res) => {
     try {
         const baseUrl = config.get('baseUrl')
         const { from } = req.body
-
         const existing = await Link.findOne({ from })
 
         if (existing) {
@@ -49,7 +48,5 @@ router.get('/:id', async (req, res) => {
         res.status(500).json({ message: "Server Error plase try again" })
     }
 })
-
-
 
 module.exports = router;

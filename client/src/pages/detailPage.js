@@ -1,14 +1,14 @@
-import React, { useEffect, useCallback, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import { useHttp } from '../hooks/httpHook';
-import { Loading } from '../component/Loading';
-import { LinkCard } from '../component/LinkCard';
-import { AuthContext } from '../Context/authContext';
+import { useParams } from 'react-router-dom'
+import React, { useEffect, useCallback, useState, useContext } from 'react'
+import { useHttp } from '../hooks/httpHook'
+import { Loading } from '../component/Loading'
+import { LinkCard } from '../component/LinkCard'
+import { AuthContext } from '../Context/authContext'
 
 
 export const DetailPage = () => {
     const { loading, request } = useHttp();
-    const { token  } = useContext(AuthContext)
+    const { token } = useContext(AuthContext)
     const [link, setLink] = useState(null)
     const linkId = useParams().id
 

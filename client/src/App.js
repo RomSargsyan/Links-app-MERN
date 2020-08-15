@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { useRoutes } from './routes'
+import { useAuth } from './hooks/authHook'
+import { NavBar } from './component/NavBar'
+import { Loading } from './component/Loading'
+import { AuthContext } from './Context/authContext'
 import 'materialize-css'
-import { BrowserRouter as Router } from 'react-router-dom';
-import { useRoutes } from './routes';
-import { useAuth } from './hooks/authHook';
-import { AuthContext } from './Context/authContext';
-import { NavBar } from './component/NavBar';
-import { Loading } from './component/Loading';
 
 function App() {
   const { login, logout, token, userId, ready } = useAuth();

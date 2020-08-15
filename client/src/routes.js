@@ -1,9 +1,9 @@
-import React from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';
-import { LinksPage } from './pages/LinksPage';
-import { CreatePage } from './pages/createPage';
-import { DetailPage } from './pages/detailPage';
-import { AuthPage } from './pages/authPage';
+import React from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import { AuthPage } from './pages/authPage'
+import { LinksPage } from './pages/LinksPage'
+import { CreatePage } from './pages/createPage'
+import { DetailPage } from './pages/detailPage'
 
 export const useRoutes = (isAuthenticated) => {
     if (isAuthenticated) {

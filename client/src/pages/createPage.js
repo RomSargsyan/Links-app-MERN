@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
-import { useHistory } from "react-router-dom";
-import { useHttp } from '../hooks/httpHook';
-import { AuthContext } from '../Context/authContext';
-import { Loading } from '../component/Loading';
+import { useHistory } from "react-router-dom"
+import React, { useState, useContext } from 'react'
+import { useHttp } from '../hooks/httpHook'
+import { Loading } from '../component/Loading'
+import { AuthContext } from '../Context/authContext'
 
 export const CreatePage = () => {
     const history = useHistory()
@@ -20,7 +20,7 @@ export const CreatePage = () => {
     }
 
     if (auth.ready) {
-        return <Loading/>
+        return <Loading />
     }
 
     return (

@@ -30,5 +30,5 @@ export const useAuth = () => {
         setReady(true)
     }, [login])
 
-    return {login, logout, token, userId, ready}
+    return { login, logout, token, userId, ready }
 }
