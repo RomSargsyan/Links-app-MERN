@@ -1,8 +1,5 @@
 # MERN-app
 
-
-# MERN-app
-
 > MERN - MongoDB, Express, React, Node
 
 ## Build Setup
