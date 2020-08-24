@@ -25,6 +25,7 @@ export const CreatePage = () => {
 
     return (
         <div>
+            <h1>Create Link</h1>
             <div className="col-s8 offset-s2">
                 <label htmlFor="Link">Link</label>
                 <input

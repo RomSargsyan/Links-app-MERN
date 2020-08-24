@@ -16,3 +16,9 @@ $ yarn dev
 # server serve with hot reload at localhost:5000
 $ yarn start
 ```
+
+# Screenshots
+  Check out some themed installs in these screenshots below:
+
+<img src="static/screenshots/Auth.png" width=300>   <img src="static/screenshots/Create.png" width=300>
+<img src="static/screenshots/Link.png" width=300>   <img src="static/screenshots/Links.png" width=300>
