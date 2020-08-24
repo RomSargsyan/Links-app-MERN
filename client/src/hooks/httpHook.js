@@ -11,6 +11,7 @@ export const useHttp = () => {
                 body = JSON.stringify(body)
                 headers['Content-Type'] = 'application/json'
             }
+
             const response = await fetch(url, { method, body, headers })
             const data = await response.json();
 
@@ -21,10 +22,10 @@ export const useHttp = () => {
             setLoading(false)
 
             return data
-        } catch (error) {
+        } catch (err) {
             setLoading(false)
-            setError(error)
-            throw error
+            setError(err.message)
+            throw err
         }
     }, [])
 

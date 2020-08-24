@@ -4,19 +4,23 @@ import { useMessage } from '../hooks/messageHook'
 import { AuthContext } from '../Context/authContext'
 
 export const AuthPage = () => {
+    const auth = useContext(AuthContext);
+    const message = useMessage()
     const { loading, request, error, clearError } = useHttp();
     const [form, setForm] = useState({
         email: "", password: ""
     });
-    const auth = useContext(AuthContext);
-    const message = useMessage()
 
     useEffect(() => {
         message(error)
         clearError()
     }, [error, message, clearError])
 
-    const changeHandler = (event) => {
+    useEffect(() => {
+        window.M.updateTextFields()
+    }, [])
+
+    const changeHandler = event => {
         setForm({ ...form, [event.target.name]: event.target.value })
     }
 
@@ -24,19 +28,20 @@ export const AuthPage = () => {
         try {
             const data = await request('/api/auth/register', 'POST', { ...form })
             message(data.message)
-        } catch (error) { }
+        } catch (e) { }
     }
 
     const loginHandler = async () => {
         try {
             const data = await request('/api/auth/login', 'POST', { ...form })
             auth.login(data.token, data.userId)
-        } catch (error) { }
+        } catch (err) { }
     }
 
     return (
         <div className="row">
             <div className="col s6 offset-s3">
+                <h2>Shorten the link</h2>
                 <div className="card blue darken-1">
                     <div className="card-content white-text">
                         <span className="card-title">Authiaction</span>
@@ -46,7 +51,8 @@ export const AuthPage = () => {
                                 id="email"
                                 type="email"
                                 name="email"
-                                placeholder="Type Email"
+                                value={form.email}
+                                placeholder="Please enter your email-adress"
                                 onChange={changeHandler}
                             />
                         </div>
@@ -56,21 +62,22 @@ export const AuthPage = () => {
                                 id="password"
                                 type="password"
                                 name="password"
-                                placeholder="Type Password"
+                                value={form.password}
+                                placeholder="Please enter your password"
                                 onChange={changeHandler}
                             />
                         </div>
                         <div className="card-action">
                             <button
                                 onClick={loginHandler}
-                                className="btn  blue lighten-2 sign-in"
+                                className="btn blue lighten-2 sign-in"
                                 disabled={loading}
                             >
                                 Sign in
                             </button>
                             <button
                                 onClick={registerHandler}
-                                className="btn  indigo darken-1"
+                                className="btn indigo darken-1"
                                 disabled={loading}
                             >
                                 Sign up
@@ -82,3 +89,4 @@ export const AuthPage = () => {
         </div>
     )
 }
+
